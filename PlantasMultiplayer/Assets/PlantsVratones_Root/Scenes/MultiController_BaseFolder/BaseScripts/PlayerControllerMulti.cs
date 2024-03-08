@@ -31,6 +31,8 @@ public class PlayerControllerMulti : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         currentState = PlayerState.normal;
+        canAttack = true;
+        isFacingRight = true;
     }
 
     
@@ -40,6 +42,8 @@ public class PlayerControllerMulti : MonoBehaviour
     {
         //Detección de la capa ground para no hacer saltos infinitos
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        //Detector contínuo de si tenemos que flipear
+        FlipUpdater();
 
         //Lectura del input de movimiento constante SOLO sie el player esta en el estado deseado (estado normal)
         if (currentState == PlayerState.normal)
@@ -56,5 +60,55 @@ public class PlayerControllerMulti : MonoBehaviour
     void Movement()
     {
         playerRb.velocity = new Vector2(horInput.x * speed, playerRb.velocity.y);
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+        isFacingRight = !isFacingRight;
+    }
+
+    void FlipUpdater()
+    {
+        if (horInput.x > 0)
+        {
+            if (!isFacingRight)
+            {
+                Flip();
+            }
+        }
+        if (horInput.x < 0)
+        {
+            if (isFacingRight)
+            {
+                Flip();
+            }
+        }
+    }
+
+    public void Jump (InputAction.CallbackContext context)
+    {
+        //Lo haremos en la proxima clase
+    }
+
+    public void Attack(InputAction.CallbackContext context)
+    {
+        if (context.performed && currentState == PlayerState.normal)
+        {
+            if (canAttack)
+            {
+                anim.SetTrigger("Attack");
+                canAttack = false;
+                Invoke(nameof(ResetAttack), 2f);
+            }
+            
+        }
+    }
+
+    void ResetAttack()
+    {
+        canAttack = true;
     }
 }
