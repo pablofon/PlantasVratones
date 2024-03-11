@@ -226,7 +226,19 @@ MonoBehaviour:
     m_ActionId: 24d97389-a8a2-45cf-8deb-fd952ad67d0d
     m_ActionName: Player2/Movement[/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6226119430830894021}
+        m_TargetAssemblyTypeName: PlayerControllerMulti, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2e406c7a-2470-4643-a909-ae696183baa9
     m_ActionName: Player2/Jump[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
@@ -264,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 5
+  restablishCooldown: 2
   isFacingRight: 0
   canAttack: 0
   currentState: 0
@@ -273,6 +286,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  knockbackX: 200
+  knockbackY: 400
+  knockbackMultiplier: 1
 --- !u!1 &4089614323650482592
 GameObject:
   m_ObjectHideFlags: 0
