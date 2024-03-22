@@ -11,10 +11,11 @@ public class PlayerControllerMulti : MonoBehaviour
     Rigidbody2D playerRb; //Para aplicar fuerzas físicas (movimiento, salto, ..)
     PlayerInput playerInput; //Para leer las nuevas inputs
     Vector2 horInput; //Para almacenar el input izqda/dech de todos los disposistivos
-    public enum PlayerState { normal, damaged}
+    public enum PlayerState { normal, sprinting, damaged}
+    private bool isSprinting, isDamaged;
 
     [Header("Character Stats & Status")]
-    public float speed;
+    public float speed, normalSpeed, sprintSpeed, damagedSpeed;
     public float jumpForce;
     public float restablishCooldown = 2f;
     [SerializeField] bool isFacingRight;
@@ -72,6 +73,9 @@ public class PlayerControllerMulti : MonoBehaviour
         {
             //Trigerear animaciones aquí
             currentState = PlayerState.damaged;
+            isDamaged = true;
+            
+
             //KNOCKBACK SEGÚN POSICIÓN DEL QUE GOLPEA
             //Si el que pega la patada esta a la izquierda...
             if (collision.gameObject.transform.position.x < gameObject.transform.position.x)
@@ -94,10 +98,16 @@ public class PlayerControllerMulti : MonoBehaviour
     void ResetStatus()
     {
         currentState = PlayerState.normal;
+        isDamaged = false;
     }
 
     void Movement()
     {
+        //Calculo de la velocidad según el estado del personaje
+        //Uso del operador ternario (?)
+        speed = isDamaged ? damagedSpeed : (isSprinting ? sprintSpeed : normalSpeed);
+        // Ejemplo: speed = isSprinting ? sprintSpeed : normalSpeed;
+        //Ejecución del movimiento en si
         playerRb.velocity = new Vector2(horInput.x * speed, playerRb.velocity.y);
     }
 
@@ -155,5 +165,13 @@ public class PlayerControllerMulti : MonoBehaviour
     void ResetAttack()
     {
         canAttack = true;
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        isSprinting = context.ReadValueAsButton();
+        //ReadValueAsButton() "imita" el mantener pulsado un boton del antiguo input system
+        //se suele asociar a bools. Es decir, cuendo mantenemos el botón se activa (true) un estado.
+        //En otra parte del código pondremos un condicional que define que en estado X pasa cosa X
     }
 }

@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 7458482475585999472}
   - component: {fileID: 1489200927822866083}
   - component: {fileID: -6226119430830894021}
+  - component: {fileID: 8395124794798989592}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,6 +258,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b5d00f25-25b5-4a95-9a4c-8fd4b1fdc8c8
     m_ActionName: Player2/Attack[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ca9f30c-e2dc-4673-8055-55f457900e0e
+    m_ActionName: Player1/Sprint[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6226119430830894021}
+        m_TargetAssemblyTypeName: PlayerControllerMulti, Assembly-CSharp
+        m_MethodName: OnSprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 401fb93f-6fe0-4c6c-aa68-1e13c639904c
+    m_ActionName: Player2/Sprint[/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player2
@@ -274,8 +295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85a2762ba020ce4b9454f00469cf0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 5
+  speed: 0
+  normalSpeed: 4
+  sprintSpeed: 8
+  damagedSpeed: 2
+  jumpForce: 8
   restablishCooldown: 2
   isFacingRight: 0
   canAttack: 0
@@ -289,6 +313,18 @@ MonoBehaviour:
   knockbackX: 200
   knockbackY: 400
   knockbackMultiplier: 1
+--- !u!114 &8395124794798989592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307995024852591578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb32b15b11d50342a855978e5e64333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4089614323650482592
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +367,7 @@ GameObject:
   - component: {fileID: 3010351222088729962}
   - component: {fileID: 4655446415215410824}
   - component: {fileID: 5137528308943396624}
+  - component: {fileID: 8335761224349917858}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Attack
@@ -426,6 +463,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &8335761224349917858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109061278715061334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b379853e2d4d994e983abdf9529c910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTime: 2
 --- !u!1 &7866411636347423591
 GameObject:
   m_ObjectHideFlags: 0
