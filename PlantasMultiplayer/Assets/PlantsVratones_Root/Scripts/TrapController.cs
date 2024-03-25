@@ -9,23 +9,17 @@ public class TrapController : MonoBehaviour
     [Header("Trap Stats")]
     public float speed;
     public Transform basePosition;
-    public bool isAlive;
 
     // Start is called before the first frame update
     void Start()
     {
-        isAlive = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         Run();
-
-        if (!isAlive)
-        {
-            TrapDeath();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +30,7 @@ public class TrapController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Water"))
         {
-            isAlive = false;
+           TrapDeath();
         }
     }
 
