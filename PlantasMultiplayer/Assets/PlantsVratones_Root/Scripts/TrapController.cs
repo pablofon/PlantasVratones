@@ -13,7 +13,7 @@ public class TrapController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        basePosition = GameObject.FindGameObjectWithTag("Water").transform;
     }
 
     // Update is called once per frame
@@ -30,6 +30,7 @@ public class TrapController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Water"))
         {
+            Debug.Log("Toca agua");
            TrapDeath();
         }
     }

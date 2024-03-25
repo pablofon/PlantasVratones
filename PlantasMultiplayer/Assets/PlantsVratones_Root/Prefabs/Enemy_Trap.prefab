@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3676629343114419040}
   - component: {fileID: 8523529839925871040}
   - component: {fileID: 7119421217230611445}
-  - component: {fileID: 3704546095327410358}
+  - component: {fileID: 2964339914205474917}
+  - component: {fileID: 8062772294560157767}
   m_Layer: 0
   m_Name: Enemy_Trap
   m_TagString: Enemy
@@ -131,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71367407, y: 0.9171164}
   m_EdgeRadius: 0
---- !u!114 &3704546095327410358
+--- !u!114 &2964339914205474917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,3 +146,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   basePosition: {fileID: 0}
+--- !u!50 &8062772294560157767
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859889925572532001}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
