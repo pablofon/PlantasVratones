@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public float damage;
     public float enemyLife;
+    public Transform basePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class EnemyController : MonoBehaviour
         {
             EnemyDeath();
         }
+
+        Run();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,5 +40,10 @@ public class EnemyController : MonoBehaviour
     public void EnemyDeath()
     {
         gameObject.SetActive(false);
+    }
+
+    public void Run()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, basePosition.position, speed * Time.deltaTime);
     }
 }
