@@ -7,6 +7,7 @@ TagManager:
   - Attack
   - Enemy
   - Water
+  - Bomb
   layers:
   - Default
   - TransparentFX
