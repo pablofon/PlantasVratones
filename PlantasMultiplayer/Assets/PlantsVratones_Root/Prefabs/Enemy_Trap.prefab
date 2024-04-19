@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7119421217230611445}
   - component: {fileID: 2964339914205474917}
   - component: {fileID: 8062772294560157767}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy_Trap
-  m_TagString: Enemy
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

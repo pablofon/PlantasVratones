@@ -42,8 +42,9 @@ public class EnemyController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Water"))
         {
-            HealthSystem hpSystem = collision.gameObject.GetComponent<HealthSystem>();
-            hpSystem.TakeDamage(damage);
+            Debug.Log("Toca agua");
+            HealthSystem DamageSystem = collision.gameObject.GetComponent<HealthSystem>();
+            DamageSystem.TakeDamage(damage);
             gameObject.SetActive(false);
         }
     }
