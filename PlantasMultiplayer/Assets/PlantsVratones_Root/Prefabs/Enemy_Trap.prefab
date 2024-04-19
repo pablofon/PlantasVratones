@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7119421217230611445}
   - component: {fileID: 2964339914205474917}
   - component: {fileID: 8062772294560157767}
+  - component: {fileID: 3941565621629321263}
   m_Layer: 3
   m_Name: Enemy_Trap
   m_TagString: Bomb
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 95693651, guid: 907e097ae4e52324680358c20abfc12e, type: 3}
-  m_Color: {r: 0, g: 0.5211234, b: 1, a: 1}
+  m_Sprite: {fileID: 1574112837, guid: faef447b550a10d4dae32d74d46ca336, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -173,3 +174,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3941565621629321263
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859889925572532001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6a47b9f2c83216429ee09b15d38d867, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -30,6 +30,7 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        //health = (health - 1);
         health -= damage;
     }
 
@@ -37,7 +38,8 @@ public class HealthSystem : MonoBehaviour
     {
          if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Toca agua");
+            Debug.Log("Toca ratón");
+            //TakeDamage();
             
         }
     }

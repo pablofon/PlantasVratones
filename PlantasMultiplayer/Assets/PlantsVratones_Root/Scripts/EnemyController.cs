@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public int damage;
     public float enemyLife;
+    bool drinking;
     public Transform basePosition;
 
     // Start is called before the first frame update
@@ -20,6 +21,8 @@ public class EnemyController : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         currentScale.y *= -1;
         transform.localScale = currentScale;
+
+        drinking = false;
     }
 
     // Update is called once per frame
@@ -29,8 +32,10 @@ public class EnemyController : MonoBehaviour
         {
             EnemyDeath();
         }
-
-        Run();
+        if (!drinking)
+        {
+            Run();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,9 +48,11 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Water"))
         {
             Debug.Log("Toca agua");
-            HealthSystem DamageSystem = collision.gameObject.GetComponent<HealthSystem>();
-            DamageSystem.TakeDamage(damage);
-            gameObject.SetActive(false);
+
+            HealthSystem hpSystem = collision.gameObject.GetComponent<HealthSystem>();
+            hpSystem.TakeDamage(damage);
+            //gameObject.SetActive(false);
+            drinking = true;
         }
     }
 
