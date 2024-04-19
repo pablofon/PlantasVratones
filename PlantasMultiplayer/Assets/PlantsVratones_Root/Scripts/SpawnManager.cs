@@ -26,31 +26,46 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       if (GameManager.Instance.gameOver == true)
+        {
+            StopCoroutine(nameof(ProgressManager));
+        }
     }
 
     void GenerateEnemyOne()
     {
-        enemyIndex = Random.Range(0, enemyPrefabsOne.Length - 1);
-        spawnerIndex = Random.Range(0, spawners.Length );
-        Instantiate(enemyPrefabsOne[enemyIndex], spawners[spawnerIndex].position, Quaternion.identity);
-        //Instantiate(prefab, posicion a generar, rotación con la que se genera)
+        if (GameManager.Instance.gameOver == false)
+        {
+            enemyIndex = Random.Range(0, enemyPrefabsOne.Length - 1);
+            spawnerIndex = Random.Range(0, spawners.Length);
+            Instantiate(enemyPrefabsOne[enemyIndex], spawners[spawnerIndex].position, Quaternion.identity);
+            //Instantiate(prefab, posicion a generar, rotación con la que se genera)
+        }
+
     }
 
     void GenerateEnemyTwo()
     {
-        enemyIndex = Random.Range(0, enemyPrefabsTwo.Length - 1);
-        spawnerIndex = Random.Range(0, spawners.Length - 1);
-        Instantiate(enemyPrefabsTwo[enemyIndex], spawners[spawnerIndex].position, Quaternion.identity);
-        //Instantiate(prefab, posicion a generar, rotación con la que se genera)
+        if (GameManager.Instance.gameOver == false)
+        {
+            enemyIndex = Random.Range(0, enemyPrefabsTwo.Length - 1);
+            spawnerIndex = Random.Range(0, spawners.Length - 1);
+            Instantiate(enemyPrefabsTwo[enemyIndex], spawners[spawnerIndex].position, Quaternion.identity);
+            //Instantiate(prefab, posicion a generar, rotación con la que se genera)
+        }
+
     }
 
     void GenerateEnemyThree()
     {
-        enemyIndex = Random.Range(0, enemyPrefabsThree.Length - 1);
-        spawnerIndex = Random.Range(0, spawners.Length - 1);
-        Instantiate(enemyPrefabsThree[enemyIndex], spawners[spawnerIndex].position, Quaternion.identity);
-        //Instantiate(prefab, posicion a generar, rotación con la que se genera)
+        if (GameManager.Instance.gameOver == false)
+        {
+            enemyIndex = Random.Range(0, enemyPrefabsThree.Length - 1);
+            spawnerIndex = Random.Range(0, spawners.Length - 1);
+            Instantiate(enemyPrefabsThree[enemyIndex], spawners[spawnerIndex].position, Quaternion.identity);
+            //Instantiate(prefab, posicion a generar, rotación con la que se genera)
+        }
+
     }
 
     IEnumerator ProgressManager()
@@ -67,6 +82,8 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("GenerateEnemyThree", castTimeHard, repeatTimeHard);
         yield return new WaitForSeconds(RoundTime);
         CancelInvoke();
+        yield return new WaitForSeconds(5f);
+        GameManager.Instance.gameCompleted = true;
         yield return null;
     }
 }
