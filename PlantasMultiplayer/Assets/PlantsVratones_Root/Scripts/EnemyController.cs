@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy Stats")]
     public float speed;
-    public float damage;
+    public int damage;
     public float enemyLife;
     public Transform basePosition;
 
@@ -38,6 +38,13 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Attack"))
         {
             enemyLife -= 1;
+        }
+
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            HealthSystem hpSystem = collision.gameObject.GetComponent<HealthSystem>();
+            hpSystem.TakeDamage(damage);
+            gameObject.SetActive(false);
         }
     }
 
