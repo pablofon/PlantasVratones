@@ -8,10 +8,13 @@ public class HealthSystem : MonoBehaviour
     public float health;
     public float maxHealth;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,8 @@ public class HealthSystem : MonoBehaviour
         {
             GameManager.Instance.gameOver = false;
         }
+
+        ConstantAnimManagement();
     }
 
     public void TakeDamage(int damage)
@@ -41,6 +46,18 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("Toca ratón");
             //TakeDamage();
             
+        }
+    }
+
+    void ConstantAnimManagement()
+    {
+        if (health < 7)
+        {
+            anim.SetBool("Half", true);
+        }
+        if (health < 2)
+        {
+            anim.SetBool("Empty", true);
         }
     }
 }
