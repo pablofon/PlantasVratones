@@ -51,7 +51,7 @@ public class HealthSystem : MonoBehaviour
 
     void ConstantAnimManagement()
     {
-        if (health < 7)
+        if (health < 8)
         {
             anim.SetBool("Half", true);
         }

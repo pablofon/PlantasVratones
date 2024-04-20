@@ -37,6 +37,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "6dda93c8-08ba-4225-b4bf-af85326483a5",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "ASWD",
                     "id": "a5a03a91-7766-4dd5-a48c-8311f7e2f439",
                     "path": "2DVector",

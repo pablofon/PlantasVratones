@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
             horInput = playerInput.actions["Movement"].ReadValue<Vector2>();
             vertInput = playerInput.actions["Movement"].ReadValue<Vector2>();
         }
+
+        ConstantAnimManagement();
     }
     private void FixedUpdate()
     {
@@ -77,5 +79,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    void ConstantAnimManagement()
+    {
+        if (playerRb.velocity.x != 0)
+        {
+            anim.SetBool("Walk", true);
+        }
+        else
+        {
+            anim.SetBool("Walk", false);
+        }
+        
+        
+    }
+
+    public void Attack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            anim.SetTrigger("Attack");
+        }
+    }
+   
 }

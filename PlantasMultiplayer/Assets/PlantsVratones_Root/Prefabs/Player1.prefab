@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3185264987576442818}
   - component: {fileID: 7904118928929549704}
   - component: {fileID: 1784914986110485361}
+  - component: {fileID: 7569059153079535171}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -174,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: eb0bef837a2a47a42a61231441825097, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -185,7 +186,35 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 355faddf-ee2b-413c-b2c7-a34241f87bcd
+    m_ActionName: Player1/Movement[/Keyboard/a,/Keyboard/w,/Keyboard/d,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1784914986110485361}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 623b03b0-bba9-48de-a895-97e77e9b37df
+    m_ActionName: Player1/Attack[/Mouse/leftButton,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24d97389-a8a2-45cf-8deb-fd952ad67d0d
+    m_ActionName: Player2/Movement[/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/right,/XInputControllerWindows/dpad/down,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5d00f25-25b5-4a95-9a4c-8fd4b1fdc8c8
+    m_ActionName: Player2/Attack[/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KeyboardMouse
   m_DefaultActionMap: Player1
@@ -207,6 +236,27 @@ MonoBehaviour:
   restablishCoolDown: 2
   isFacingRight: 0
   currentState: 0
+--- !u!95 &7569059153079535171
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891893617505671545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ef7755d642f75146adfe0c74c095cfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6317172958093972146
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6913079582193258074
 Transform:
   m_ObjectHideFlags: 0
