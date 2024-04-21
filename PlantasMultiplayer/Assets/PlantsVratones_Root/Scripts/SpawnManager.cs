@@ -38,6 +38,7 @@ public class SpawnManager : MonoBehaviour
        if (GameManager.Instance.gameOver == true)
         {
             StopCoroutine(nameof(ProgressManager));
+
         }
     }
 
@@ -45,6 +46,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (GameManager.Instance.gameOver == false)
         {
+            
             enemyIndex = Random.Range(0, enemyPrefabsOne.Length - 1);
             spawnerIndex = Random.Range(0, spawners.Length);
             Instantiate(enemyPrefabsOne[enemyIndex], spawners[spawnerIndex].position, Quaternion.identity);
@@ -79,7 +81,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator ProgressManager()
     {
-        round1.SetActive(true);
+        round1.SetActive(true); 
         yield return new WaitForSeconds(3f);
         round1.SetActive(false);
         InvokeRepeating("GenerateEnemyOne", castTime, repeatTime);

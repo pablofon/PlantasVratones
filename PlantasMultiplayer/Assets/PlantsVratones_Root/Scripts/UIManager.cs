@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance.gameCompleted)
         {
+            AudioManager.instance.PlaySFX(4);
             winPanel.SetActive(true);
         }
         else

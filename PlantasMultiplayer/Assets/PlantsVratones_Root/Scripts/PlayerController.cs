@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            AudioManager.instance.PlaySFX(0); 
             anim.SetTrigger("Attack");
         }
     }

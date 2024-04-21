@@ -22,6 +22,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (health <= 0)
         {
+            AudioManager.instance.PlaySFX(5);
             health = 0;
             GameManager.Instance.gameOver = true;
         }
