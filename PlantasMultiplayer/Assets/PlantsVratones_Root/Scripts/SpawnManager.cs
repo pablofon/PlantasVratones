@@ -15,10 +15,19 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float RoundTime;
     private int enemyIndex;
     private int spawnerIndex;
+    [SerializeField] GameObject round1;
+    [SerializeField] GameObject round2;
+    [SerializeField] GameObject round3;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        round1.SetActive(false);
+        round2.SetActive(false);
+        round3.SetActive(false);
+
         //InvokeRepeating("GenerateEnemyOne", castTime, repeatTime);
         StartCoroutine(nameof(ProgressManager));
     }
@@ -70,15 +79,23 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator ProgressManager()
     {
+        round1.SetActive(true);
         yield return new WaitForSeconds(3f);
+        round1.SetActive(false);
         InvokeRepeating("GenerateEnemyOne", castTime, repeatTime);
         yield return new WaitForSeconds(RoundTime);
         CancelInvoke();
+        yield return new WaitForSeconds(1f);
+        round2.SetActive(true);
         yield return new WaitForSeconds(5f);
+        round2.SetActive(false);
         InvokeRepeating("GenerateEnemyTwo", castTime, repeatTime);
         yield return new WaitForSeconds(RoundTime);
         CancelInvoke();
+        yield return new WaitForSeconds(1f);
+        round3.SetActive(true);
         yield return new WaitForSeconds(5f);
+        round3.SetActive(false);
         InvokeRepeating("GenerateEnemyThree", castTimeHard, repeatTimeHard);
         yield return new WaitForSeconds(RoundTime);
         CancelInvoke();
