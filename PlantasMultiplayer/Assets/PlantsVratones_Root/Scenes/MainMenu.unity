@@ -955,6 +955,7 @@ MonoBehaviour:
   sfxSource: {fileID: 552205216}
   musicList:
   - {fileID: 8300000, guid: 994527720547d0e40aed0cde1d5bc528, type: 3}
+  - {fileID: 8300000, guid: 73c68886a7d6ae04dbe539b5fa2c4269, type: 3}
   sfxList:
   - {fileID: 8300000, guid: 7c29aff956bc0204683ab31087947884, type: 3}
   - {fileID: 8300000, guid: e74d6bc0f7b865243b26ed367de41a40, type: 3}
@@ -1008,7 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3517815f44426c4ea080c71f7d9bb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicToPlay: 0
+  musicToPlay: 1
 --- !u!4 &1531406347
 Transform:
   m_ObjectHideFlags: 0
