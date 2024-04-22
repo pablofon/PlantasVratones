@@ -81,21 +81,24 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator ProgressManager()
     {
-        round1.SetActive(true); 
+        round1.SetActive(true);
+        AudioManager.instance.PlaySFX(1);
         yield return new WaitForSeconds(3f);
         round1.SetActive(false);
         InvokeRepeating("GenerateEnemyOne", castTime, repeatTime);
         yield return new WaitForSeconds(RoundTime);
         CancelInvoke();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         round2.SetActive(true);
+        AudioManager.instance.PlaySFX(2);
         yield return new WaitForSeconds(5f);
         round2.SetActive(false);
         InvokeRepeating("GenerateEnemyTwo", castTime, repeatTime);
         yield return new WaitForSeconds(RoundTime);
         CancelInvoke();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         round3.SetActive(true);
+        AudioManager.instance.PlaySFX(3);
         yield return new WaitForSeconds(5f);
         round3.SetActive(false);
         InvokeRepeating("GenerateEnemyThree", castTimeHard, repeatTimeHard);
